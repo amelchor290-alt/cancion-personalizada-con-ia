@@ -1,0 +1,19 @@
+name: Renombrar a index.html
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Renombrar archivo
+        run: |
+          ls -la
+          mv cancion-personalizada-con-ia.html index.html
+          git config user.name "amelchor290-alt"
+          git config user.email "amelchor290-alt@users.noreply.github.com"
+          git add -A
+          git commit -m "Renombrar archivo a index.html para GitHub Pages"
+          git push
